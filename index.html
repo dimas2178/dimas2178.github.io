@@ -33,7 +33,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Улучшенный логотип с пульсирующим неоном */
+        /* Логотип проекта */
         .project-icon {
             width: 140px;
             height: 140px;
@@ -88,7 +88,7 @@
             gap: 14px;
         }
 
-        /* Карточки плагинов в стиле киберпанк-интерфейса */
+        /* Карточки плагинов */
         .plugin-item {
             padding: 18px 22px;
             background: rgba(21, 24, 33, 0.7);
@@ -105,7 +105,6 @@
             gap: 12px;
         }
 
-        /* Точка-индикатор перед названием плагина */
         .plugin-item::before {
             content: '';
             display: inline-block;
@@ -124,7 +123,6 @@
             border-color: rgba(255, 255, 255, 0.1);
         }
 
-        /* Стиль для выбранной кнопки */
         .plugin-item.active {
             background: linear-gradient(90deg, #1b242a 0%, #151922 100%);
             color: #2ecc71;
@@ -137,7 +135,7 @@
             box-shadow: 0 0 10px #2ecc71;
         }
 
-        /* Правая панель с описанием */
+        /* Панель с описанием */
         .plugin-details {
             background: rgba(17, 20, 28, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.02);
@@ -151,9 +149,8 @@
             backdrop-filter: blur(10px);
         }
 
-        /* Плавное появление контента */
+        /* Контент внутри деталей */
         .details-content {
-            display: none;
             animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -179,7 +176,6 @@
             margin-bottom: 35px;
         }
 
-        /* Кастомный дизайн консольных команд */
         code {
             background: #090a0f;
             color: #ff5858;
@@ -199,21 +195,14 @@
             border-radius: 4px;
         }
 
-        /* Рамка и тень для игровых скриншотов */
         .plugin-image {
             max-width: 100%;
             height: auto;
             border-radius: 14px;
             box-shadow: 0 12px 40px rgba(0,0,0,0.6);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: transform 0.3s ease;
         }
 
-        .plugin-image:hover {
-            transform: scale(1.01);
-        }
-
-        /* Заглушка, когда ничего не выбрано */
         .placeholder-text {
             color: #4b5563;
             font-size: 1.2rem;
@@ -222,12 +211,8 @@
             letter-spacing: 0.5px;
         }
 
-        /* Адаптация под телефоны */
         @media (max-width: 768px) {
-            .main-container {
-                grid-template-columns: 1fr;
-                margin: 20px auto;
-            }
+            .main-container { grid-template-columns: 1fr; margin: 20px auto; }
             .header h1 { font-size: 2rem; }
             .plugin-details { padding: 25px; }
         }
@@ -235,7 +220,6 @@
 </head>
 <body>
 
-    <!-- Шапка проекта Litery -->
     <header class="header">
         <img class="project-icon" src="NoRules.jpg" alt="Иконка проекта">
         <h1>Плагины Litery NoRules</h1>
@@ -245,40 +229,43 @@
     <div class="main-container">
         <!-- Список плагинов -->
         <div class="plugin-list">
-            <div class="plugin-item" onclick="showPlugin(this, 1)">Открытие дверей без карты</div>
-            <div class="plugin-item" onclick="showPlugin(this, 2)">Открытие дверей выстрелом</div>
-            <div class="plugin-item" onclick="showPlugin(this, 3)">Огненный человек SCP-457</div>
-            <div class="plugin-item" onclick="showPlugin(this, 4)">Дыра в стене SCP-1162</div>
-            <div class="plugin-item" onclick="showPlugin(this, 5)">Монетка (Телепорт/Взрыв)</div>
-            <div class="plugin-item" onclick="showPlugin(this, 6)">SCPSWAP (Обмен классами)</div>
-            <div class="plugin-item" onclick="showPlugin(this, 7)">Чат через консоль</div>
+            <div class="plugin-item active" id="btn-1">Открытие дверей без карты</div>
+            <div class="plugin-item" id="btn-2">Открытие дверей выстрелом</div>
+            <div class="plugin-item" id="btn-3">Огненный человек SCP-457</div>
+            <div class="plugin-item" id="btn-4">Дыра в стене SCP-1162</div>
+            <div class="plugin-item" id="btn-5">Монетка (Телепорт/Взрыв)</div>
+            <div class="plugin-item" id="btn-6">SCPSWAP (Обмен классами)</div>
+            <div class="plugin-item" id="btn-7">Чат через консоль</div>
         </div>
 
-        <!-- Детали -->
+        <!-- Описание плагинов -->
         <div class="plugin-details">
-            <div id="placeholder" class="placeholder-text">
-                Выберите интересующий плагин из списка слева, чтобы ознакомиться с его функционалом.
-            </div>
-            
-            <div id="details-content" class="details-content">
-                <h2 id="plugin-title" class="plugin-title"></h2>
-                <p id="plugin-desc" class="plugin-desc"></p>
-                <img id="plugin-img" class="plugin-image" src="" alt="Скриншот плагина">
+            <div id="details-box" class="details-content">
+                <h2 id="plugin-title" class="plugin-title">Открытие дверей без карты в руках</h2>
+                <p id="plugin-desc" class="plugin-desc">Позволяет открывать доступные вам двери автоматически, даже если нужная ключ-карта просто лежит в вашем инвентаре. Больше не нужно тратить время на её экипировку в опасных ситуациях.</p>
+                <img id="plugin-img" class="plugin-image" src="https://picsum.photos" alt="Скриншот">
             </div>
         </div>
     </div>
 
     <script>
-        const pluginsData = {
-            1: {
-                title: "Открытие дверей без карты в руках",
-                desc: "Позволяет открывать доступные вам двери автоматически, даже если нужная ключ-карта просто лежит в вашем инвентаре. Больше не нужно тратить время на её экипировку в опасных ситуациях.",
-                img: "https://picsum.photos"
+        // Новая сверхупрощенная и пуленепробиваемая база данных
+        var db = {
+            "btn-1": {
+                t: "Открытие дверей без карты в руках",
+                d: "Позволяет открывать доступные вам двери автоматически, даже если нужная ключ-карта просто лежит в вашем инвентаре. Больше не нужно тратить время на её экипировку в опасных ситуациях.",
+                i: "https://picsum.photos"
             },
-            2: {
-                title: "Открытие дверей выстрелом по кнопке",
-                desc: "Добавляет механику тактического открытия дверей. Обычные двери можно мгновенно открыть или закрыть, просто метко выстрелив по кнопке панели управления.",
-                img: "https://picsum.photos"
+            "btn-2": {
+                t: "Открытие дверей выстрелом по кнопке",
+                d: "Добавляет механику тактического открытия дверей. Обычные двери можно мгновенно открыть или закрыть, просто метко выстрелив по кнопке панели управления.",
+                i: "https://picsum.photos"
             },
-            3: {
-                title: "Огненный человек SCP-457",
+            "btn-3": {
+                t: "Огненный человек SCP-457",
+                d: "Добавляет на сервер играбельный объект SCP-457 со следующими механиками:<br><br>• <strong>Урон по области:</strong> наносит повреждения окружающим. Чем ближе вы находитесь к цели — тем больше урона она получает.<br>• <span class='stat-green'>Восстановление здоровья:</span> восстанавливает по <code>60 HP</code> за каждое совершенное убийство.<br>• <strong>Характеристики:</strong> имеет запас в <code>2200 HP</code> и <code>550 единиц щита</code>.<br>• <strong>Аварийный бафф:</strong> если уровень здоровья опускается до <code>1000 HP</code> или ниже, прочность щита автоматически увеличивается до <code>1000 единиц</code>.",
+                i: "https://picsum.photos"
+            },
+            "btn-4": {
+                t: "Дыра в стене SCP-1162",
+                d: "Удобный обменник предметов прямо на сервере. Вы можете бесконечно обменивать свои вещи на случайные другие, при этом игрок абсолютно защищен — он не теряет здоровье и не получает никаких негативных эффектов. Единственное исключение: <span style='color:#e74c3c; font-weight:bold;'>патроны обменивать нельзя</span>.",

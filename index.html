@@ -151,6 +151,7 @@
 
         /* Контент внутри деталей */
         .details-content {
+            display: none;
             animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -227,45 +228,50 @@
     </header>
     
     <div class="main-container">
-        <!-- Список плагинов -->
+        <!-- Список плагинов с классическим вызовом onclick -->
         <div class="plugin-list">
-            <div class="plugin-item active" id="btn-1">Открытие дверей без карты</div>
-            <div class="plugin-item" id="btn-2">Открытие дверей выстрелом</div>
-            <div class="plugin-item" id="btn-3">Огненный человек SCP-457</div>
-            <div class="plugin-item" id="btn-4">Дыра в стене SCP-1162</div>
-            <div class="plugin-item" id="btn-5">Монетка (Телепорт/Взрыв)</div>
-            <div class="plugin-item" id="btn-6">SCPSWAP (Обмен классами)</div>
-            <div class="plugin-item" id="btn-7">Чат через консоль</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 1)">Открытие дверей без карты</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 2)">Открытие дверей выстрелом</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 3)">Огненный человек SCP-457</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 4)">Дыра в стене SCP-1162</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 5)">Монетка (Телепорт/Взрыв)</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 6)">SCPSWAP (Обмен классами)</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 7)">Чат через консоль</div>
         </div>
 
         <!-- Описание плагинов -->
         <div class="plugin-details">
-            <div id="details-box" class="details-content">
-                <h2 id="plugin-title" class="plugin-title">Открытие дверей без карты в руках</h2>
-                <p id="plugin-desc" class="plugin-desc">Позволяет открывать доступные вам двери автоматически, даже если нужная ключ-карта просто лежит в вашем инвентаре. Больше не нужно тратить время на её экипировку в опасных ситуациях.</p>
-                <img id="plugin-img" class="plugin-image" src="https://picsum.photos" alt="Скриншот">
+            <!-- Заглушка при входе на сайт -->
+            <div id="placeholder" class="placeholder-text">
+                Выберите интересующий плагин из списка слева, чтобы ознакомиться с его функционалом.
+            </div>
+            
+            <!-- Контейнер для контента -->
+            <div id="details-content" class="details-content">
+                <h2 id="plugin-title" class="plugin-title"></h2>
+                <p id="plugin-desc" class="plugin-desc"></p>
+                <img id="plugin-img" class="plugin-image" src="" alt="Скриншот">
             </div>
         </div>
     </div>
 
     <script>
-        // Новая сверхупрощенная и пуленепробиваемая база данных
+        // База данных без опасных символов
         var db = {
-            "btn-1": {
+            1: {
                 t: "Открытие дверей без карты в руках",
                 d: "Позволяет открывать доступные вам двери автоматически, даже если нужная ключ-карта просто лежит в вашем инвентаре. Больше не нужно тратить время на её экипировку в опасных ситуациях.",
                 i: "https://picsum.photos"
             },
-            "btn-2": {
+            2: {
                 t: "Открытие дверей выстрелом по кнопке",
                 d: "Добавляет механику тактического открытия дверей. Обычные двери можно мгновенно открыть или закрыть, просто метко выстрелив по кнопке панели управления.",
                 i: "https://picsum.photos"
             },
-            "btn-3": {
+            3: {
                 t: "Огненный человек SCP-457",
                 d: "Добавляет на сервер играбельный объект SCP-457 со следующими механиками:<br><br>• <strong>Урон по области:</strong> наносит повреждения окружающим. Чем ближе вы находитесь к цели — тем больше урона она получает.<br>• <span class='stat-green'>Восстановление здоровья:</span> восстанавливает по <code>60 HP</code> за каждое совершенное убийство.<br>• <strong>Характеристики:</strong> имеет запас в <code>2200 HP</code> и <code>550 единиц щита</code>.<br>• <strong>Аварийный бафф:</strong> если уровень здоровья опускается до <code>1000 HP</code> или ниже, прочность щита автоматически увеличивается до <code>1000 единиц</code>.",
                 i: "https://picsum.photos"
             },
-            "btn-4": {
+            4: {
                 t: "Дыра в стене SCP-1162",
-                d: "Удобный обменник предметов прямо на сервере. Вы можете бесконечно обменивать свои вещи на случайные другие, при этом игрок абсолютно защищен — он не теряет здоровье и не получает никаких негативных эффектов. Единственное исключение: <span style='color:#e74c3c; font-weight:bold;'>патроны обменивать нельзя</span>.",

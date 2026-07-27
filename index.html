@@ -3,63 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог плагинов</title>
+    <title>Плагины Litery NoRules</title>
     <style>
-        /* Базовые стили и красивый шрифт */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
-            color: #212529;
+            background-color: #12131a; /* Более темная геймерская тема в стиле SCP */
+            color: #e2e8f0;
         }
 
-        /* Шапка сайта с центрированной иконкой */
         .header {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #1f242e 0%, #0d0f14 100%);
+            border-bottom: 2px solid #3b4252;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* Стиль для вашей иконки */
         .project-icon {
-            width: 150px; /* Было 100px, стало 150px */
-            height: 150px; /* Было 100px, стало 150px */
+            width: 150px; /* Размер увеличен по вашему запросу */
+            height: 150px;
             border-radius: 50%;
-            background-color: white;
+            background-color: #1a1c23;
             object-fit: contain;
-            padding: 8px; /* Немного увеличили внутренний отступ для баланса */
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            padding: 8px;
+            border: 4px solid #2ecc71; /* Зеленая рамка под цвет вашего логотипа */
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.3);
             margin-bottom: 15px;
         }
 
         .header h1 {
             margin: 0;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 700;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            color: #ffffff;
         }
 
         .header p {
-            margin: 5px 0 0 0;
-            opacity: 0.8;
-            font-size: 1rem;
+            margin: 8px 0 0 0;
+            color: #a0aec0;
+            font-size: 1.1rem;
         }
 
-        /* Основной контейнер */
         .main-container {
             max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 300px 1fr;
+            grid-template-columns: 320px 1fr;
             gap: 30px;
         }
 
-        /* Список плагинов слева */
         .plugin-list {
             display: flex;
             flex-direction: column;
@@ -68,42 +64,40 @@
 
         .plugin-item {
             padding: 16px 20px;
-            background: white;
+            background: #1a1c23;
             border-radius: 12px;
             cursor: pointer;
             font-weight: 600;
             border-left: 5px solid transparent;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: all 0.25s ease;
+            color: #cbd5e1;
         }
 
-        /* Эффект при наведении */
         .plugin-item:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
-            background: #f1f3f9;
+            background: #242836;
+            color: #fff;
         }
 
-        /* Класс для активного (выбранного) плагина */
         .plugin-item.active {
-            border-left-color: #667eea;
-            background: #edf2ff;
-            color: #4c6ef5;
+            border-left-color: #2ecc71;
+            background: #242836;
+            color: #2ecc71;
         }
 
-        /* Панель деталей справа */
         .plugin-details {
-            background: white;
+            background: #1a1c23;
             padding: 40px;
             border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             min-height: 400px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            border: 1px solid #2d3139;
         }
 
-        /* Контент внутри деталей (изначально скрыт, пока не выберут плагин) */
         .details-content {
             display: none;
             animation: fadeIn 0.4s ease;
@@ -117,62 +111,77 @@
         .plugin-title {
             margin-top: 0;
             font-size: 2rem;
-            color: #1a1a1a;
+            color: #ffffff;
+            border-bottom: 2px solid #2d3139;
+            padding-bottom: 10px;
         }
 
         .plugin-desc {
             font-size: 1.1rem;
-            line-height: 1.6;
-            color: #4a5568;
+            line-height: 1.7;
+            color: #94a3b8;
             margin-bottom: 25px;
+        }
+
+        /* Стиль для красивого выделения консольных команд */
+        code {
+            background: #0f1115;
+            color: #e74c3c;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            font-weight: bold;
+            border: 1px solid #2d3139;
         }
 
         .plugin-image {
             max-width: 100%;
             height: auto;
             border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            border: 1px solid #3b4252;
         }
 
-        /* Текст-заглушка */
         .placeholder-text {
-            color: #a0aec0;
+            color: #64748b;
             font-size: 1.2rem;
             text-align: center;
             font-style: italic;
         }
 
-        /* Адаптивность для мобильных устройств */
         @media (max-width: 768px) {
             .main-container {
                 grid-template-columns: 1fr;
             }
-            .header h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Шапка со значком -->
+    <!-- Шапка проекта Litery -->
     <header class="header">
-        <!-- Замените URL ниже на ссылку на вашу настоящую иконку -->
         <img class="project-icon" src="NoRules.jpg" alt="Иконка проекта">
-        <h1>Каталог плагинов</h1>
-        <p>Лучшие дополнения для вашего проекта в одном месте</p>
+        <h1>Плагины Litery NoRules</h1>
+        <p>Полный список плагинов</p>
     </header>
     
     <div class="main-container">
-        <!-- Список плагинов -->
+        <!-- Список плагинов SCP:SL -->
         <div class="plugin-list">
-            <div class="plugin-item" onclick="showPlugin(this, 'Плагин Авто-сохранения', 'Этот плагин автоматически сохраняет вашу работу каждые 5 секунд. Больше вы не потеряете важные данные.', 'https://picsum.photos')">Auto-Save Plugin</div>
-            <div class="plugin-item" onclick="showPlugin(this, 'Темная Тема Plus', 'Превращает любой интерфейс в приятный для глаз ночной режим с кастомными палитрами.', 'https://picsum.photos')">Dark Theme Plus</div>
-            <div class="plugin-item" onclick="showPlugin(this, 'Оптимизатор Картинок', 'Сжимает изображения без потери качества прямо перед публикацией на сайт.', 'https://picsum.photos')">Image Optimizer</div>
+            <div class="plugin-item" onclick="showPlugin(this, 'Открытие дверей без карты в руках', 'Позволяет открывать доступные вам двери автоматически, даже если нужная ключ-карта просто лежит в вашем инвентаре. Больше не нужно тратить время на её экипировку в опасных ситуациях.', 'https://picsum.photos')">Открытие дверей без карты</div>
+            <div class="plugin-item" onclick="showPlugin(this, 'Открытие дверей выстрелом по кнопке', 'Добавляет механику тактического открытия дверей. Обычные двери или шлюзы можно мгновенно открыть или закрыть, просто метко выстрелив по электронной кнопке панели управления.', 'https://picsum.photos')">Открытие дверей выстрелом</div>
+            <div class="plugin-item" onclick="showPlugin(this, 'Огненный человек SCP-457', 'Добавляет на сервер играбельный объект SCP-457 (Огненный человек). Игрок за этого персонажа поджигает врагов при приближении и восстанавливает свое здоровье, находясь рядом с огнем или сжигая жертв.', 'https://picsum.photos')">Огненный человек SCP-457</div>
+            <div class="plugin-item" onclick="showPlugin(this, 'Дыра в стене SCP-1162', 'Активирует аномальную дыру в стене комплекса. Взаимодействуя с ней, вы можете «пожертвовать» ненужный предмет из инвентаря, чтобы случайным образом вытащить что-то крайне полезное... или потерять здоровье, если удача не на вашей стороне.', 'https://picsum.photos')">Дыра в стене SCP-1162</div>
+            <div class="plugin-item" onclick="showPlugin(this, 'Монетка (Телепорт или Взрыв)', 'Обычная игровая монетка превращается в рулетку судьбы! При подбрасывании монетки с определенным шансом вас либо мгновенно телепортирует в случайную точку Зоны-14, либо она взорвется прямо у вас в руках.', 'https://picsum.photos')">Монетка (Телепорт/Взрыв)</div>
+            <div class="plugin-item" onclick="showPlugin(this, 'SCPSWAP (Обмен классами)', 'Плагин позволяет игрокам в начале раунда обмениваться ролями SCP. Чтобы отправить запрос, откройте игровую консоль (нажатием на кнопку <code>Ё</code> / <code>~</code>) и введите команду.<br><br><strong>Примеры использования:</strong><br>• <code>scpswap scp049</code><br>• <code>ss scp049</code>', 'https://picsum.photos')">SCPSWAP (Обмен классами)</div>
+            <div class="plugin-item" onclick="showPlugin(this, 'Глобальный или локальный чат', 'Удобная функция общения через консоль. Откройте консоль на кнопку <code>Ё</code> (тильда) и используйте специальный префикс для отправки сообщения.<br><br><strong>Как общаться:</strong><br>Введите в консоль: <code>.s &quot;Ваш текст сообщения&quot;</code>', 'https://picsum.photos')">Чат через консоль</div>
         </div>
 
         <!-- Описание -->
         <div class="plugin-details">
             <div id="placeholder" class="placeholder-text">
-                Выберите плагин из списка слева, чтобы увидеть подробную информацию и скриншот.
+                Выберите плагин из списка слева, чтобы прочитать его описание и посмотреть функционал.
             </div>
             
             <div id="details-content" class="details-content">
@@ -185,21 +194,17 @@
 
     <script>
         function showPlugin(element, name, description, imageUrl) {
-            // Убираем класс active у всех плагинов в списке
             const items = document.querySelectorAll('.plugin-item');
             items.forEach(item => item.classList.remove('active'));
             
-            // Добавляем класс active нажатому элементу
             element.classList.add('active');
 
-            // Скрываем заглушку и показываем контейнер с контентом
             document.getElementById('placeholder').style.display = 'none';
             const content = document.getElementById('details-content');
             content.style.display = 'block';
             
-            // Заполняем данные
-            document.getElementById('plugin-title').textContent = name;
-            document.getElementById('plugin-desc').textContent = description;
+            document.getElementById('plugin-title').innerHTML = name;
+            document.getElementById('plugin-desc').innerHTML = description; /* Используем innerHTML для поддержки тегов <code> */
             document.getElementById('plugin-img').src = imageUrl;
         }
     </script>

@@ -123,7 +123,6 @@
             margin-bottom: 25px;
         }
 
-        /* Выделение числовых характеристик и команд */
         code {
             background: #0f1115;
             color: #e74c3c;
@@ -135,7 +134,6 @@
             border: 1px solid #2d3139;
         }
 
-        /* Зеленый цвет для баффов/хп */
         .stat-green {
             color: #2ecc71;
             font-weight: bold;
@@ -165,7 +163,6 @@
 </head>
 <body>
 
-    <!-- Шапка проекта Litery -->
     <header class="header">
         <img class="project-icon" src="NoRules.jpg" alt="Иконка проекта">
         <h1>Плагины Litery NoRules</h1>
@@ -173,18 +170,16 @@
     </header>
     
     <div class="main-container">
-        <!-- Список плагинов SCP:SL -->
         <div class="plugin-list">
-            <div class="plugin-item" onclick="showPlugin(this, 'Открытие дверей без карты в руках', 'Позволяет открывать доступные вам двери автоматически, даже если нужная ключ-карта просто лежит в вашем инвентаре. Больше не нужно тратить время на её экипировку в опасных ситуациях.', 'https://picsum.photos')">Открытие дверей без карты</div>
-            <div class="plugin-item" onclick="showPlugin(this, 'Открытие дверей выстрелом по кнопке', 'Добавляет механику тактического открытия дверей. Обычные двери можно мгновенно открыть или закрыть, просто метко выстрелив по кнопке панели управления.', 'https://picsum.photos')">Открытие дверей выстрелом</div>
-            <div class="plugin-item" onclick="showPlugin(this, 'Огненный человек SCP-457', 'Добавляет на сервер играбельный объект SCP-457 со следующими механиками:<br><br>• <strong>Урон по области:</strong> наносит повреждения окружающим. Чем ближе вы находитесь к цели — тем больше урона она получает.<br>• <span class=\"stat-green\">Восстановление здоровья:</span> восстанавливает по <code>60 HP</code> за каждое совершенное убийство.<br>• <strong>Характеристики:</strong> имеет запас в <code>2200 HP</code> и <code>550 единиц щита</code>.<br>• <strong>Аварийный бафф:</strong> если уровень здоровья опускается до <code>1000 HP</code> или ниже, прочность щита автоматически увеличивается до <code>1000 единиц</code>.', 'https://picsum.photos')">Огненный человек SCP-457</div>
-            <div class="plugin-item" onclick="showPlugin(this, 'Дыра в стене SCP-1162', 'Удобный обменник предметов прямо на сервере. Вы можете бесконечно обменивать свои вещи на случайные другие, при этом игрок абсолютно защищен — он не теряет здоровье и не получает никаких негативных эффектов. Единственное исключение: <span style=\"color:#e74c3c; font-weight:bold;\">патроны обменивать нельзя</span>.', 'https://picsum.photos')">Дыра в стене SCP-1162</div>
-            <div class="plugin-item" onclick="showPlugin(this, 'Монетка (Телепорт или Взрыв)', 'Обычная игровая монетка превращается в рулетку судьбы! При подбрасывании монетки с определенным шансом вас либо мгновенно телепортирует в случайное место на карте комплекса, либо она взорвется прямо у вас в руках.', 'https://picsum.photos')">Монетка (Телепорт/Взрыв)</div>
-            <div class="plugin-item" onclick="showPlugin(this, 'SCPSWAP (Обмен классами)', 'Плагин позволяет игрокам в начале раунда обмениваться ролями SCP. Чтобы отправить запрос, откройте игровую консоль (нажатием на кнопку <code>Ё</code> / <code>~</code>) и введите команду.<br><br><strong>Примеры использования:</strong><br>• <code>scpswap scp049</code><br>• <code>ss scp049</code>', 'https://picsum.photos')">SCPSWAP (Обмен классами)</div>
-            <div class="plugin-item" onclick="showPlugin(this, 'Глобальный или локальный чат', 'Удобная функция общения через консоль. Откройте консоль на кнопку <code>Ё</code> (тильда) и используйте специальный префикс для отправки сообщения.<br><br><strong>Как общаться:</strong><br>Введите в консоль: <code>.s &quot;Ваш текст сообщения&quot;</code><br><br><span style=\"color:#e74c3c;\"><strong>Важное правило:</strong></span> Живые игроки гарантированно не видят сообщения от наблюдателей (мертвых игроков).', 'https://picsum.photos')">Чат через консоль</div>
+            <div class="plugin-item" onclick="showPlugin(this, 1)">Открытие дверей без карты</div>
+            <div class="plugin-item" onclick="showPlugin(this, 2)">Открытие дверей выстрелом</div>
+            <div class="plugin-item" onclick="showPlugin(this, 3)">Огненный человек SCP-457</div>
+            <div class="plugin-item" onclick="showPlugin(this, 4)">Дыра в стене SCP-1162</div>
+            <div class="plugin-item" onclick="showPlugin(this, 5)">Монетка (Телепорт/Взрыв)</div>
+            <div class="plugin-item" onclick="showPlugin(this, 6)">SCPSWAP (Обмен классами)</div>
+            <div class="plugin-item" onclick="showPlugin(this, 7)">Чат через консоль</div>
         </div>
 
-        <!-- Описание -->
         <div class="plugin-details">
             <div id="placeholder" class="placeholder-text">
                 Выберите плагин из списка слева, чтобы прочитать его описание и посмотреть функционал.
@@ -199,7 +194,46 @@
     </div>
 
     <script>
-        function showPlugin(element, name, description, imageUrl) {
+        // Переносим тексты в базу данных JavaScript, чтобы HTML не ломался из-за кавычек
+        const pluginsData = {
+            1: {
+                title: "Открытие дверей без карты в руках",
+                desc: "Позволяет открывать доступные вам двери автоматически, даже если нужная ключ-карта просто лежит в вашем инвентаре. Больше не нужно тратить время на её экипировку в опасных ситуациях.",
+                img: "https://picsum.photos"
+            },
+            2: {
+                title: "Открытие дверей выстрелом по кнопке",
+                desc: "Добавляет механику тактического открытия дверей. Обычные двери можно мгновенно открыть или закрыть, просто метко выстрелив по кнопке панели управления.",
+                img: "https://picsum.photos"
+            },
+            3: {
+                title: "Огненный человек SCP-457",
+                desc: "Добавляет на сервер играбельный объект SCP-457 со следующими механиками:<br><br>• <strong>Урон по области:</strong> наносит повреждения окружающим. Чем ближе вы находитесь к цели — тем больше урона она получает.<br>• <span class='stat-green'>Восстановление здоровья:</span> восстанавливает по <code>60 HP</code> за каждое совершенное убийство.<br>• <strong>Характеристики:</strong> имеет запас в <code>2200 HP</code> и <code>550 единиц щита</code>.<br>• <strong>Аварийный бафф:</strong> если уровень здоровья опускается до <code>1000 HP</code> или ниже, прочность щита автоматически увеличивается до <code>1000 единиц</code>.",
+                img: "https://picsum.photos"
+            },
+            4: {
+                title: "Дыра в стене SCP-1162",
+                desc: "Удобный обменник предметов прямо на сервере. Вы можете бесконечно обменивать свои вещи на случайные другие, при этом игрок абсолютно защищен — он не теряет здоровье и не получает никаких негативных эффектов. Единственное исключение: <span style='color:#e74c3c; font-weight:bold;'>патроны обменивать нельзя</span>.",
+                img: "https://picsum.photos"
+            },
+            5: {
+                title: "Монетка (Телепорт или Взрыв)",
+                desc: "Обычная игровая монетка превращается в рулетку судьбы! При подбрасывании монетки с определенным шансом вас либо мгновенно телепортирует в случайное место на карте комплекса, либо она взорвется прямо у вас в руках.",
+                img: "https://picsum.photos"
+            },
+            6: {
+                title: "SCPSWAP (Обмен классами)",
+                desc: "Плагин позволяет игрокам в начале раунда обмениваться ролями SCP. Чтобы отправить запрос, откройте игровую консоль (нажатием на кнопку <code>Ё</code> / <code>~</code>) и введите команду.<br><br><strong>Примеры использования:</strong><br>• <code>scpswap scp049</code><br>• <code>ss scp049</code>",
+                img: "https://picsum.photos"
+            },
+            7: {
+                title: "Глобальный или локальный чат",
+                desc: "Удобная функция общения через консоль. Откройте консоль на кнопку <code>Ё</code> (тильда) и используйте специальный префикс для отправки сообщения.<br><br><strong>Как общаться:</strong><br>Введите в консоль: <code>.s [текст сообщения]</code><br><br><span style='color:#e74c3c;'><strong>Важное правило:</strong></span> Живые игроки гарантированно не видят сообщения от наблюдателей (мертвых игроков).",
+                img: "https://picsum.photos"
+            }
+        };
+
+        function showPlugin(element, id) {
             const items = document.querySelectorAll('.plugin-item');
             items.forEach(item => item.classList.remove('active'));
             
@@ -209,11 +243,7 @@
             const content = document.getElementById('details-content');
             content.style.display = 'block';
             
-            document.getElementById('plugin-title').innerHTML = name;
-            document.getElementById('plugin-desc').innerHTML = description;
-            document.getElementById('plugin-img').src = imageUrl;
-        }
-    </script>
-
-</body>
-</html>
+            const plugin = pluginsData[id];
+            document.getElementById('plugin-title').innerHTML = plugin.title;
+            document.getElementById('plugin-desc').innerHTML = plugin.desc;
+            document.getElementById('plugin-img').src = plugin.img;

@@ -5,218 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Плагины Litery NoRules</title>
     <style>
-        /* Основные настройки темы */
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #0a0b0d;
-            color: #e2e8f0;
-            overflow-x: hidden;
+            margin: 0; padding: 0; background-color: #0a0b0d; color: #e2e8f0; overflow-x: hidden;
         }
-
-        /* Анимированная футуристичная шапка */
         .header {
-            text-align: center;
-            padding: 50px 20px;
+            text-align: center; padding: 50px 20px;
             background: linear-gradient(-45deg, #131722, #1b2030, #0d111a, #161b29);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            border-bottom: 1px solid rgba(46, 204, 113, 0.2);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-            position: relative;
+            background-size: 400% 400%; animation: gradientBG 15s ease infinite;
+            border-bottom: 1px solid rgba(46, 204, 113, 0.2); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
-
         @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
         }
-
-        /* Логотип проекта */
         .project-icon {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            background-color: #11141a;
-            object-fit: contain;
-            padding: 10px;
-            border: 2px solid rgba(46, 204, 113, 0.6);
-            box-shadow: 0 0 25px rgba(46, 204, 113, 0.2);
-            margin-bottom: 20px;
-            transition: all 0.5s ease;
+            width: 140px; height: 140px; border-radius: 50%; background-color: #11141a;
+            object-fit: contain; padding: 10px; border: 2px solid rgba(46, 204, 113, 0.6);
+            box-shadow: 0 0 25px rgba(46, 204, 113, 0.2); margin-bottom: 20px; transition: all 0.5s ease;
         }
-
         .project-icon:hover {
-            transform: scale(1.05) rotate(5deg);
-            box-shadow: 0 0 35px rgba(46, 204, 113, 0.5);
-            border-color: rgba(46, 204, 113, 1);
+            transform: scale(1.05) rotate(5deg); box-shadow: 0 0 35px rgba(46, 204, 113, 0.5); border-color: #2ecc71;
         }
-
-        .header h1 {
-            margin: 0;
-            font-size: 2.6rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: #ffffff;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .header p {
-            margin: 10px 0 0 0;
-            color: #8a99ad;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 600;
-        }
-
-        /* Контейнер */
-        .main-container {
-            max-width: 1240px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 340px 1fr;
-            gap: 30px;
-        }
-
-        /* Список плагинов */
-        .plugin-list {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        /* Карточки плагинов */
+        .header h1 { margin: 0; font-size: 2.6rem; font-weight: 800; letter-spacing: 2px; color: #ffffff; }
+        .header p { margin: 10px 0 0 0; color: #8a99ad; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 600; }
+        .main-container { max-width: 1240px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 340px 1fr; gap: 30px; }
+        .plugin-list { display: flex; flex-direction: column; gap: 14px; }
         .plugin-item {
-            padding: 18px 22px;
-            background: rgba(21, 24, 33, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 14px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            color: #94a3b8;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            padding: 18px 22px; background: rgba(21, 24, 33, 0.7); border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 14px; cursor: pointer; font-weight: 600; font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); color: #94a3b8;
+            display: flex; align-items: center; gap: 12px;
         }
-
-        .plugin-item::before {
-            content: '';
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: #475569;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .plugin-item:hover {
-            transform: translateX(6px);
-            background: #1b202e;
-            color: #ffffff;
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .plugin-item.active {
-            background: linear-gradient(90deg, #1b242a 0%, #151922 100%);
-            color: #2ecc71;
-            border: 1px solid rgba(46, 204, 113, 0.3);
-            box-shadow: inset 0 0 15px rgba(46, 204, 113, 0.05), 0 4px 20px rgba(0,0,0,0.3);
-        }
-
-        .plugin-item.active::before {
-            background: #2ecc71;
-            box-shadow: 0 0 10px #2ecc71;
-        }
-
-        /* Панель с описанием */
-        .plugin-details {
-            background: rgba(17, 20, 28, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.02);
-            padding: 45px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            min-height: 420px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            backdrop-filter: blur(10px);
-        }
-
-        /* Контент внутри деталей */
-        .details-content {
-            display: none;
-            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .plugin-title {
-            margin-top: 0;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: 0.5px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding-bottom: 15px;
-        }
-
-        .plugin-desc {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #cbd5e1;
-            margin-bottom: 35px;
-        }
-
-        code {
-            background: #090a0f;
-            color: #ff5858;
-            padding: 5px 10px;
-            border-radius: 8px;
-            font-family: 'Consolas', 'Courier New', monospace;
-            font-size: 0.95rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .stat-green {
-            color: #2ecc71;
-            font-weight: bold;
-            background: rgba(46, 204, 113, 0.1);
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-
-        .plugin-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 14px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.6);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .placeholder-text {
-            color: #4b5563;
-            font-size: 1.2rem;
-            text-align: center;
-            font-style: italic;
-            letter-spacing: 0.5px;
-        }
-
-        @media (max-width: 768px) {
-            .main-container { grid-template-columns: 1fr; margin: 20px auto; }
-            .header h1 { font-size: 2rem; }
-            .plugin-details { padding: 25px; }
-        }
+        .plugin-item::before { content: ''; display: inline-block; width: 8px; height: 8px; background: #475569; border-radius: 50%; transition: all 0.3s ease; flex-shrink: 0; }
+        .plugin-item:hover { transform: translateX(6px); background: #1b202e; color: #ffffff; border-color: rgba(255, 255, 255, 0.1); }
+        .plugin-item.active { background: linear-gradient(90deg, #1b242a 0%, #151922 100%); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+        .plugin-item.active::before { background: #2ecc71; box-shadow: 0 0 10px #2ecc71; }
+        .plugin-details { background: rgba(17, 20, 28, 0.8); border: 1px solid rgba(255, 255, 255, 0.02); padding: 45px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); min-height: 420px; display: flex; flex-direction: column; justify-content: center; backdrop-filter: blur(10px); }
+        .details-content { display: none; animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .plugin-title { margin-top: 0; font-size: 2.2rem; font-weight: 700; color: #ffffff; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 15px; }
+        .plugin-desc { font-size: 1.15rem; line-height: 1.8; color: #cbd5e1; margin-bottom: 35px; }
+        code { background: #090a0f; color: #ff5858; padding: 5px 10px; border-radius: 8px; font-family: 'Consolas', monospace; font-size: 0.95rem; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .stat-green { color: #2ecc71; font-weight: bold; background: rgba(46, 204, 113, 0.1); padding: 2px 6px; border-radius: 4px; }
+        .plugin-image { max-width: 100%; height: auto; border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.6); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .placeholder-text { color: #4b5563; font-size: 1.2rem; text-align: center; font-style: italic; }
+        @media (max-width: 768px) { .main-container { grid-template-columns: 1fr; } .header h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
@@ -228,7 +61,6 @@
     </header>
     
     <div class="main-container">
-        <!-- Список плагинов с классическим вызовом onclick -->
         <div class="plugin-list">
             <div class="plugin-item" onclick="selectPlugin(this, 1)">Открытие дверей без карты</div>
             <div class="plugin-item" onclick="selectPlugin(this, 2)">Открытие дверей выстрелом</div>
@@ -239,14 +71,8 @@
             <div class="plugin-item" onclick="selectPlugin(this, 7)">Чат через консоль</div>
         </div>
 
-        <!-- Описание плагинов -->
         <div class="plugin-details">
-            <!-- Заглушка при входе на сайт -->
-            <div id="placeholder" class="placeholder-text">
-                Выберите интересующий плагин из списка слева, чтобы ознакомиться с его функционалом.
-            </div>
-            
-            <!-- Контейнер для контента -->
+            <div id="placeholder" class="placeholder-text">Выберите интересующий плагин из списка слева.</div>
             <div id="details-content" class="details-content">
                 <h2 id="plugin-title" class="plugin-title"></h2>
                 <p id="plugin-desc" class="plugin-desc"></p>
@@ -256,7 +82,6 @@
     </div>
 
     <script>
-        // База данных без опасных символов
         var db = {
             1: {
                 t: "Открытие дверей без карты в руках",
@@ -275,3 +100,37 @@
             },
             4: {
                 t: "Дыра в стене SCP-1162",
+                d: "Удобный обменник предметов прямо на сервере. Вы можете бесконечно обменивать свои вещи на случайные другие, при этом игрок абсолютно защищен — он не теряет здоровье и не получает никаких негативных эффектов. Единственное исключение: <span style='color:#e74c3c; font-weight:bold;'>патроны обменивать нельзя</span>.",
+                i: "https://picsum.photos"
+            },
+            5: {
+                t: "Монетка (Телепорт или Взрыв)",
+                d: "Обычная игровая монетка превращается в рулетку судьбы! При подбрасывании монетки с определенным шансом вас либо мгновенно телепортирует в случайное место на карте комплекса, либо она взорвется прямо у вас в руках.",
+                i: "https://picsum.photos"
+            },
+            6: {
+                t: "SCPSWAP (Обмен классами)",
+                d: "Плагин позволяет игрокам в начале раунда обмениваться ролями SCP. Чтобы отправить запрос, откройте игровую консоль (нажатием на кнопку <code>Ё</code> / <code>~</code>) и введите команду.<br><br><strong>Примеры использования:</strong><br>• <code>scpswap scp049</code><br>• <code>ss scp049</code>",
+                i: "https://picsum.photos"
+            },
+            7: {
+                t: "Глобальный или локальный чат",
+                d: "Удобная функция общения через консоль. Откройте консоль на кнопку <code>Ё</code> (тильда) и используйте специальный префикс для отправки сообщения.<br><br><strong>Как общаться:</strong><br>Введите в консоль: <code>.s [текст сообщения]</code><br><br><span style='color:#e74c3c;'><strong>Важное правило:</strong></span> Живые игроки гарантированно не видят сообщения от наблюдателей (мертвых игроков).",
+                i: "https://picsum.photos"
+            }
+        };
+
+        function selectPlugin(element, id) {
+            var items = document.getElementsByClassName('plugin-item');
+            for (var i = 0; i < items.length; i++) { items[i].classList.remove('active'); }
+            element.classList.add('active');
+            document.getElementById('placeholder').style.display = 'none';
+            document.getElementById('details-content').style.display = 'block';
+            var data = db[id];
+            document.getElementById('plugin-title').innerHTML = data.t;
+            document.getElementById('plugin-desc').innerHTML = data.d;
+            document.getElementById('plugin-img').src = data.i;
+        }
+    </script>
+</body>
+</html>

@@ -20,19 +20,9 @@
             font-size: 0.75rem; color: #ff5400; font-weight: bold; letter-spacing: 2px; border: 1px solid #ff5400; padding: 2px 6px;
         }
         .project-icon {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            background-color: transparent;
-            object-fit: contain;
-            padding: 10px;
-            border: 2px dashed #ff5400;
-            box-shadow: 0 0 20px rgba(255, 84, 0, 0.2);
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-            mix-blend-mode: screen; 
+            width: 130px; height: 130px; border-radius: 50%; background-color: #0d0f12; object-fit: contain;
+            padding: 10px; border: 2px dashed #ff5400; box-shadow: 0 0 20px rgba(255, 84, 0, 0.2); margin-bottom: 15px; transition: all 0.3s ease;
         }
-
         .project-icon:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 84, 0, 0.4); border-style: solid; }
         .header h1 { margin: 0; font-size: 2.4rem; font-weight: bold; letter-spacing: 3px; color: #ffffff; text-transform: uppercase; }
         .header p { margin: 8px 0 0 0; color: #7a828e; font-size: 1rem; letter-spacing: 4px; text-transform: uppercase; }
@@ -44,14 +34,19 @@
         }
         .plugin-item:hover { background: #1c2128; color: #ffffff; border-left-color: #ffffff; padding-left: 25px; }
         .plugin-item.active { background: #1e1b18; color: #ff5400; border-color: #ff5400; border-left: 6px solid #ff5400; text-shadow: 0 0 8px rgba(255, 84, 0, 0.4); }
-        .plugin-details { background: #0d0f12; border: 2px solid #14171c; padding: 40px; border-radius: 4px; min-height: 420px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+        .plugin-details { background: #0d0f12; border: 2px solid #14171c; padding: 40px; border-radius: 4px; min-height: 480px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+        .plugin-details::before {
+            content: " "; display: block; position: absolute; top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2; background-size: 100% 2px, 3px 100%; pointer-events: none;
+        }
         .details-content { display: none; animation: glitchOpen 0.3s ease; }
         @keyframes glitchOpen { 0% { opacity: 0; transform: scaleY(0.98); } 100% { opacity: 1; transform: scaleY(1); } }
         .plugin-title { margin-top: 0; font-size: 1.8rem; font-weight: bold; color: #ffffff; letter-spacing: 1px; text-transform: uppercase; border-bottom: 2px dashed #14171c; padding-bottom: 15px; }
-        .plugin-desc { font-size: 1.05rem; line-height: 1.8; color: #b0b8c4; margin-bottom: 35px; }
+        .plugin-desc { font-size: 1.05rem; line-height: 1.8; color: #b0b8c4; margin-bottom: 15px; }
         code { background: #14171c; color: #38ef7d; padding: 4px 8px; border-radius: 2px; font-family: monospace; font-size: 1rem; border: 1px solid #282e38; }
         .stat-green { color: #38ef7d; font-weight: bold; border-bottom: 1px dashed #38ef7d; }
-        .plugin-image { max-width: 100%; height: auto; border-radius: 2px; box-shadow: 0 5px 20px rgba(0,0,0,0.8); border: 1px solid #14171c; display: none; }
+        .plugin-image { max-width: 100%; height: auto; border-radius: 2px; box-shadow: 0 5px 20px rgba(0,0,0,0.8); border: 1px solid #14171c; display: none; margin-top: 20px; }
         .placeholder-text { color: #4a525d; font-size: 1.1rem; text-align: center; text-transform: uppercase; letter-spacing: 2px; }
         @media (max-width: 768px) { .main-container { grid-template-columns: 1fr; } .header h1 { font-size: 1.8rem; } }
     </style>
@@ -61,26 +56,27 @@
     <header class="header">
         <img class="project-icon" src="NoRules.png" alt="Иконка проекта">
         <h1>Плагины Litery NoRules</h1>
-        <p>Полный список плагинов</p>
+        <p>Спецификация модулей комплекса</p>
     </header>
     <div class="main-container">
-        <!-- Список плагинов -->
         <div class="plugin-list">
             <div class="plugin-item" onclick="selectPlugin(this, 1)">Двери без карты</div>
-            <div class="plugin-item" onclick="selectPlugin(this, 2)">Открытие дверей выстрелом</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 2)">Двери выстрелом</div>
             <div class="plugin-item" onclick="selectPlugin(this, 3)">SCP-457 Огненный человек</div>
             <div class="plugin-item" onclick="selectPlugin(this, 4)">SCP-1162 Дыра в стене</div>
             <div class="plugin-item" onclick="selectPlugin(this, 5)">Монетка судьбы</div>
-            <div class="plugin-item" onclick="selectPlugin(this, 6)">SCPSWAP консольная команда</div>
-            <div class="plugin-item" onclick="selectPlugin(this, 7)">Чат</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 6)">SCPSWAP консоль</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 7)">Чат наблюдателей</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 8)">Быстрый респавн (.res)</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 9)">SCP-005 Отмычка</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 10)">Группировка ГОК</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 11)">Побег связанных</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 12)">Побег для SCP</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 13)">Мина и С4 (Взрывчатка)</div>
         </div>
 
-        <!-- Описание плагинов -->
         <div class="plugin-details">
-            <div id="placeholder" class="placeholder-text">
-                [ ОЖИДАНИЕ ВЫБОРА МОДУЛЯ ДЛЯ ВЫВОДА ДАННЫХ ]
-            </div>
-            
+            <div id="placeholder" class="placeholder-text">[ ОЖИДАНИЕ ВЫБОРА МОДУЛЯ ]</div>
             <div id="details-content" class="details-content">
                 <h2 id="plugin-title" class="plugin-title"></h2>
                 <p id="plugin-desc" class="plugin-desc"></p>
@@ -90,42 +86,58 @@
     </div>
 
     <script>
-        // Скриншот для SCP-1162 (id: 4) полностью удален из базы данных
         var db = {
             1: {
-                t: "Открытие дверей без карты в руках",
-                d: "Позволяет открывать доступные вам двери автоматически, даже если нужная ключ-карта просто лежит в вашем инвентаре. Больше не нужно тратить время на её экипировку в опасных ситуациях.",
-                i: "" 
+                t: "Автоматический обход шлюзов (без карты в руках)",
+                d: "Позволяет открывать доступные вам двери автоматически, даже если нужная ключ-карта просто лежит в вашем инвентаре. Больше не нужно тратить время на её экипировку в опасных ситуациях.", i: "" 
             },
             2: {
-                t: "Открытие дверей выстрелом",
-                d: "Добавляет механику тактического открытия дверей. Обычные двери можно мгновенно открыть или закрыть, просто метко выстрелив по кнопке панели управления.",
-                i: "" 
+                t: "Тактический взлом дверей выстрелом",
+                d: "Добавляет механику тактического открытия дверей. Обычные двери можно мгновенно открыть или закрыть, просто метко выстрелив по кнопке панели управления.", i: "" 
             },
             3: {
                 t: "Объект SCP-457 - Огненный человек",
-                d: "Добавляет на сервер играбельный объект SCP-457 со следующими механиками:<br><br>• <strong>Урон по области:</strong> наносит повреждения окружающим. Чем ближе вы находитесь к цели — тем больше урона она получает.<br>• <span class='stat-green'>Восстановление здоровья:</span> восстанавливает по <code>60 HP</code> за каждое совершенное убийство.<br>• <strong>Характеристики:</strong> имеет запас в <code>2200 HP</code> и <code>550 единиц щита</code>.<br>• <strong>Аварийный бафф:</strong> если уровень здоровья опускается до <code>1000 HP</code> или ниже, прочность щита автоматически увеличивается до <code>1000 единиц</code>.",
-                i: "scp457.png" 
+                d: "Добавляет играбельный объект SCP-457:<br><br>• <strong>Урон по области:</strong> Чем ближе к цели — тем больше урона.<br>• <span class='stat-green'>Регенерация:</span> +<code>60 HP</code> за каждое убийство.<br>• <strong>Статы:</strong> <code>2200 HP</code> и <code>550 щита</code>.<br>• <strong>Бафф:</strong> Если HP меньше или равно <code>1000</code>, щит мгновенно увеличивается до <code>1000 единиц</code>.", i: "scp457.png" 
             },
             4: {
-                t: "Объект SCP-1162 - Дыра в стене",
-                d: "Удобный обменник предметов прямо на сервере. Вы можете бесконечно обменивать свои вещи на случайные другие, при этом игрок абсолютно защищен — он не теряет здоровье и не получает никаких негативных эффектов. Единственное исключение: <span style='color:#ff5400; font-weight:bold;'>патроны обменивать нельзя</span>.",
-                i: "" 
+                t: "Аномальный объект SCP-1162 - Дыра в стене",
+                d: "Обменник предметов на сервере. Можно бесконечно обменивать свои вещи на случайные другие. При этом игрок абсолютно защищен — он не теряет здоровье и не получает негативных эффектов. Исключение: <span style='color:#ff5400; font-weight:bold;'>патроны обменивать нельзя</span>.", i: "" 
             },
             5: {
-                t: "Монетка судьбы",
-                d: "Обычная игровая монетка превращается в рулетку судьбы! При подбрасывании монетки с определенным шансом вас либо мгновенно телепортирует в случайное место на карте комплекса, либо она взорвется прямо у вас в руках.",
-                i: "Coin.png" 
+                t: "Аномальный протокол: Монетка судьбы",
+                d: "Обычная монетка превращается в непредсказуемый артефакт с целым каскадом случайных аномальных событий! При подбрасывании запускается скрытая рулетка комплекса. Способна как спасти (телепортировать в случайное место), так и уничтожить — взорваться прямо в руках. Каждый бросок — это абсолютный риск.", i: "Coin.png" 
             },
             6: {
-                t: "SCPSWAP",
-                d: "Плагин позволяет игрокам в начале раунда обмениваться ролями SCP. Чтобы отправить запрос, откройте игровую консоль (нажатием на кнопку <code>Ё</code> / <code>~</code>) и введите команду.<br><br><strong>Примеры использования:</strong><br>• <code>scpswap scp049</code><br>• <code>ss scp049</code>",
-                i: "" 
+                t: "Консольный протокол: SCPSWAP (Обновленный)",
+                d: "Позволяет игрокам в начале раунда обмениваться ролями SCP. Откройте консоль (на <code>Ё</code> / <code>~</code>) и введите команду в новом формате.<br><br><strong>Синтаксис:</strong> <code>scpswap [номер_SCP]</code> (или сокращенно <code>.ss</code>, <code>.sswap</code>, <code>.swap</code>)<br><strong>Пример:</strong> <code>scpswap 049</code> или <code>.ss 049</code>", i: "" 
             },
             7: {
-                t: "Чат",
-                d: "Удобная функция общения через консоль. Откройте консоль на кнопку <code>Ё</code> (тильда) и используйте специальный префикс для отправки сообщения.<br><br><strong>Как общаться:</strong><br>Введите в консоль: <code>.s [текст сообщения]</code><br><br><span style='color:#ff5400;'><strong>Протокол безопасности:</strong></span> Живые игроки гарантированно не видят сообщения от наблюдателей (мертвых игроков).",
-                i: "Chat.png" 
+                t: "Система связи: Фильтрация чата",
+                d: "Функция общения через консоль (на кнопку <code>Ё</code>). Используйте префикс <code>.s [текст сообщения]</code> для отправки.<br><br><span style='color:#ff5400;'><strong>Протокол безопасности:</strong></span> Живые игроки гарантированно не видят сообщения от наблюдателей (мертвых игроков).", i: "Chat.png" 
+            },
+            8: {
+                t: "Протокол экстренной рекомпликации: .respawn",
+                d: "Позволяет игрокам в режиме наблюдения мгновенно вернуться в игру в качестве персонала Класса Д.<br><br>• <strong>Тайминг:</strong> функция доступна строго в <code>первые 5 минут</code> раунда.<br>• <strong>Лимиты:</strong> количество использований безгранично.<br>• <strong>Команда активации (в консоль на Ё):</strong> <code>.respawn</code> или <code>.res</code>", i: ""
+            },
+            9: {
+                t: "SCP-005 - Аномальная отмычка",
+                d: "Карманный SCP-объект. Способен обойти любую цифровую защиту комплекса. Выглядит как ключ-карта Совета O5.<br><br>• <strong>Способность:</strong> открывает любые двери, включая заблокированные (в том числе шлюзы под контролем SCP-079).<br>• <strong>Лимит прочности:</strong> строго <code>5 использований</code>.<br>• <strong>Ограничение:</strong> работает только на <strong>открытие</strong>, закрывать двери нельзя.<br>• <strong>Спавн:</strong> 1 штука на карту в случайных шкафчиках или боксах карманных SCP (кроме улицы).", i: ""
+            },
+            10: {
+                t: "Глобальная Оккультная Коалиция (ГОК)",
+                d: "Новая вооруженная фракция со своим диктором CASSIE.<br><br>• <strong>Роли:</strong> Рядовой ГОК, Сержант ГОК, Капитан ГОК.<br>• <strong>Шанс появления:</strong> <code>10%</code> на то, что отряд заменит МОГ или ПХ.<br>• <strong>Точка спавна:</strong> зона выхода на поверхности.<br>• <span style='color:#ff5400;'><strong>Важное правило:</strong></span> Оперативникам ГОК строго <strong>запрещено</strong> использовать карманные SCP-объекты.", i: ""
+            },
+            11: {
+                t: "Протокол эвакуации связанных пленных",
+                d: "Позволяет выводить из комплекса связанных противников в зоне эвакуации и менять их роли:<br><br>• Связанный Охранник → Новобранец ПХ<br>• Связанный Услышитель ПХ → Специалист МОГ<br>• Другие связанные бойцы ПХ → Рядовые МОГ<br>• Связанный Капитан МОГ → Усмиритель ПХ<br>• Другие связанные бойцы МОГ → Новобранцы ПХ", i: ""
+            },
+            12: {
+                t: "Тактический побег для SCP-объектов",
+                d: "Теперь объекты SCP могут сбежать из Зоны комплекса и выиграть раунд.<br><br>• <strong>Условие:</strong> Находясь в зоне побега на поверхности, откройте консоль (на `Ё`) и пропишите команду.<br>• <strong>Команда:</strong> <code>.esc</code>", i: ""
+            },
+            13: {
+                t: "Инженерное вооружение: Тактическая Мина и Заряд C4",
+                d: "Кастомные инженерные устройства для ловушек. Оба предмета изначально появляются на карте в виде гранат.<br><br>⚡ <strong>1. ТАКТИЧЕСКАЯ МИНА</strong><br>• <strong>Спавн:</strong> по 2 штуки в оружейных комнатах легкой (Light) и тяжелой (Hard) зон. Шанс — <code>100%</code>.<br>• <strong>Установка:</strong> бросьте гранату, и под вами на полу появится кастомная схематика мины.<br>• <strong>Принцип:</strong> взрывается мгновенно, если наступит любой игрок, кроме владельца (кто её поставил).<br>• <strong>Параметры:</strong> радиус гранаты, урон до <code>300 HP</code>. Уничтожается выстрелом.<br>• <span style='color:#38ef7d;'>Экран при подборе:</span> <code>&quot;Чтобы поставить мину - киньте гранату, на владельца она не работает.&quot;</code><br><br>💥 <strong>2. УПРАВЛЯЕМЫЙ ЗАРЯД C4</strong><br>• <strong>Спавн:</strong> в оружейной хард зоны (шанс <code>50%</code>) и 2 штуки в оружейной 079 (шанс <code>100%</code>).<br>• <strong>Установка:</strong> брошенная граната прикрепляется к стене, двери или полу.<br>• <strong>Детонация:</strong> возьмите рацию в руки и нажмите кнопку, назначенную в настройках игры (<strong>Server-Specific</strong>). Урон как у гранаты, взрывается от выстрела.<br>• <span style='color:#38ef7d;'>Экран при подборе:</span> <code>&quot;Чтобы поставить С4 киньте гранату. Подробнее в Ё.&quot;</code><br>• <span style='color:#ff5400;'>Консоль (Ё):</span> <code>&quot;Чтобы поставить С4 киньте гранату, чтобы активировать С4 возьмите рацию в руки и нажмите кнопку, что Вы поставили в Server-Specific(в настройках).&quot;</code>", i: ""
             }
         };
 
@@ -133,21 +145,16 @@
             var items = document.getElementsByClassName('plugin-item');
             for (var i = 0; i < items.length; i++) { items[i].classList.remove('active'); }
             element.classList.add('active');
-            
             document.getElementById('placeholder').style.display = 'none';
             document.getElementById('details-content').style.display = 'block';
-            
             var data = db[id];
             document.getElementById('plugin-title').innerHTML = data.t;
             document.getElementById('plugin-desc').innerHTML = data.d;
-            
             var imgBlock = document.getElementById('plugin-img');
             if (data.i !== "") {
-                imgBlock.src = data.i;
-                imgBlock.style.display = "block";
+                imgBlock.src = data.i; imgBlock.style.display = "block";
             } else {
-                imgBlock.style.display = "none";
-                imgBlock.src = "";
+                imgBlock.style.display = "none"; imgBlock.src = "";
             }
         }
     </script>

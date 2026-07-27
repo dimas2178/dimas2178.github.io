@@ -5,164 +5,236 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Плагины Litery NoRules</title>
     <style>
+        /* Основные настройки темы */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #12131a;
+            background-color: #0a0b0d; /* Углубленный космический черный */
             color: #e2e8f0;
+            overflow-x: hidden;
         }
 
+        /* Анимированная футуристичная шапка */
         .header {
             text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #1f242e 0%, #0d0f14 100%);
-            border-bottom: 2px solid #3b4252;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 50px 20px;
+            background: linear-gradient(-45deg, #131722, #1b2030, #0d111a, #161b29);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite; /* Плавный перелив фона */
+            border-bottom: 1px solid rgba(46, 204, 113, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
         }
 
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Улучшенный логотип с пульсирующим неоном */
         .project-icon {
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-            background-color: #1a1c23;
+            background-color: #11141a;
             object-fit: contain;
-            padding: 8px;
-            border: 4px solid #2ecc71;
-            box-shadow: 0 0 20px rgba(46, 204, 113, 0.3);
-            margin-bottom: 15px;
+            padding: 10px;
+            border: 2px solid rgba(46, 204, 113, 0.6);
+            box-shadow: 0 0 25px rgba(46, 204, 113, 0.2);
+            margin-bottom: 20px;
+            transition: all 0.5s ease;
+        }
+
+        .project-icon:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 0 35px rgba(46, 204, 113, 0.5);
+            border-color: rgba(46, 204, 113, 1);
         }
 
         .header h1 {
             margin: 0;
-            font-size: 2.4rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: 2px;
             color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .header p {
-            margin: 8px 0 0 0;
-            color: #a0aec0;
+            margin: 10px 0 0 0;
+            color: #8a99ad;
             font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
         }
 
+        /* Контейнер */
         .main-container {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 40px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 320px 1fr;
+            grid-template-columns: 340px 1fr;
             gap: 30px;
         }
 
+        /* Список плагинов */
         .plugin-list {
             display: flex;
             flex-direction: column;
+            gap: 14px;
+        }
+
+        /* Карточки плагинов в стиле киберпанк-интерфейса */
+        .plugin-item {
+            padding: 18px 22px;
+            background: rgba(21, 24, 33, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 14px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
             gap: 12px;
         }
 
-        .plugin-item {
-            padding: 16px 20px;
-            background: #1a1c23;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            border-left: 5px solid transparent;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: all 0.25s ease;
-            color: #cbd5e1;
+        /* Точка-индикатор перед названием плагина */
+        .plugin-item::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #475569;
+            border-radius: 50%;
+            transition: all 0.3s ease;
         }
 
         .plugin-item:hover {
-            transform: translateY(-2px);
-            background: #242836;
-            color: #fff;
+            transform: translateX(6px);
+            background: #1b202e;
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
+        /* Стиль для выбранной кнопкой */
         .plugin-item.active {
-            border-left-color: #2ecc71;
-            background: #242836;
+            background: linear-gradient(90deg, #1b242a 0%, #151922 100%);
             color: #2ecc71;
+            border: 1px solid rgba(46, 204, 113, 0.3);
+            box-shadow: inset 0 0 15px rgba(46, 204, 113, 0.05), 0 4px 20px rgba(0,0,0,0.3);
         }
 
+        .plugin-item.active::before {
+            background: #2ecc71;
+            box-shadow: 0 0 10px #2ecc71;
+        }
+
+        /* Правая панель с описанием */
         .plugin-details {
-            background: #1a1c23;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            min-height: 400px;
+            background: rgba(17, 20, 28, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            min-height: 420px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border: 1px solid #2d3139;
+            backdrop-filter: blur(10px); /* Легкий эффект размытия заднего плана */
         }
 
+        /* Плавное появление контента */
         .details-content {
             display: none;
-            animation: fadeIn 0.4s ease;
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .plugin-title {
             margin-top: 0;
-            font-size: 2rem;
+            font-size: 2.2rem;
+            font-weight: 700;
             color: #ffffff;
-            border-bottom: 2px solid #2d3139;
-            padding-bottom: 10px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 15px;
         }
 
         .plugin-desc {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #94a3b8;
-            margin-bottom: 25px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+            margin-bottom: 35px;
         }
 
+        /* Кастомный дизайн консольных команд */
         code {
-            background: #0f1115;
-            color: #e74c3c;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-family: 'Courier New', Courier, monospace;
+            background: #090a0f;
+            color: #ff5858;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Courier New', monospace;
             font-size: 0.95rem;
-            font-weight: bold;
-            border: 1px solid #2d3139;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .stat-green {
             color: #2ecc71;
             font-weight: bold;
+            background: rgba(46, 204, 113, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
         }
 
+        /* Рамка и тень для игровых скриншотов */
         .plugin-image {
             max-width: 100%;
             height: auto;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-            border: 1px solid #3b4252;
+            border-radius: 14px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.3s ease;
         }
 
+        .plugin-image:hover {
+            transform: scale(1.01);
+        }
+
+        /* Заглушка, когда ничего не выбрано */
         .placeholder-text {
-            color: #64748b;
+            color: #4b5563;
             font-size: 1.2rem;
             text-align: center;
             font-style: italic;
+            letter-spacing: 0.5px;
         }
 
+        /* Адаптация под телефоны */
         @media (max-width: 768px) {
             .main-container {
                 grid-template-columns: 1fr;
+                margin: 20px auto;
             }
+            .header h1 { font-size: 2rem; }
+            .plugin-details { padding: 25px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Шапка проекта Litery -->
     <header class="header">
         <img class="project-icon" src="NoRules.jpg" alt="Иконка проекта">
         <h1>Плагины Litery NoRules</h1>
@@ -170,6 +242,7 @@
     </header>
     
     <div class="main-container">
+        <!-- Список плагинов -->
         <div class="plugin-list">
             <div class="plugin-item" onclick="showPlugin(this, 1)">Открытие дверей без карты</div>
             <div class="plugin-item" onclick="showPlugin(this, 2)">Открытие дверей выстрелом</div>
@@ -180,9 +253,10 @@
             <div class="plugin-item" onclick="showPlugin(this, 7)">Чат через консоль</div>
         </div>
 
+        <!-- Детали -->
         <div class="plugin-details">
             <div id="placeholder" class="placeholder-text">
-                Выберите плагин из списка слева, чтобы прочитать его описание и посмотреть функционал.
+                Выберите интересующий плагин из списка слева, чтобы ознакомиться с его функционалом.
             </div>
             
             <div id="details-content" class="details-content">
@@ -207,47 +281,3 @@
             },
             3: {
                 title: "Огненный человек SCP-457",
-                desc: "Добавляет на сервер играбельный объект SCP-457 со следующими механиками:<br><br>• <strong>Урон по области:</strong> наносит повреждения окружающим. Чем ближе вы находитесь к цели — тем больше урона она получает.<br>• <span class='stat-green'>Восстановление здоровья:</span> восстанавливает по <code>60 HP</code> за каждое совершенное убийство.<br>• <strong>Характеристики:</strong> имеет запас в <code>2200 HP</code> и <code>550 единиц щита</code>.<br>• <strong>Аварийный бафф:</strong> если уровень здоровья опускается до <code>1000 HP</code> или ниже, прочность щита автоматически увеличивается до <code>1000 единиц</code>.",
-                img: "https://picsum.photos"
-            },
-            4: {
-                title: "Дыра в стене SCP-1162",
-                desc: "Удобный обменник предметов прямо на сервере. Вы можете бесконечно обменивать свои вещи на случайные другие. Единственное исключение: <span style='color:#e74c3c; font-weight:bold;'>патроны обменивать нельзя</span>.",
-                img: "https://picsum.photos"
-            },
-            5: {
-                title: "Монетка (Телепорт или Взрыв)",
-                desc: "Обычная игровая монетка превращается в рулетку судьбы! При подбрасывании монетки с определенным шансом вас либо мгновенно телепортирует в случайное место на карте комплекса, либо она взорвется прямо у вас в руках.",
-                img: "https://picsum.photos"
-            },
-            6: {
-                title: "SCPSWAP (Обмен классами)",
-                desc: "Плагин позволяет игрокам в начале раунда обмениваться ролями SCP. Чтобы отправить запрос, откройте игровую консоль (нажатием на кнопку <code>Ё</code> / <code>~</code>) и введите команду.<br><br><strong>Примеры использования:</strong><br>• <code>scpswap scp049</code><br>• <code>ss scp049</code>",
-                img: "https://picsum.photos"
-            },
-            7: {
-                title: "Глобальный или локальный чат",
-                desc: "Удобная функция общения через консоль. Откройте консоль на кнопку <code>Ё</code> (тильда) и используйте специальный префикс для отправки сообщения.<br><br><strong>Как общаться:</strong><br>Введите в консоль: <code>.s [текст сообщения]</code><br><br><span style='color:#e74c3c;'><strong>Важное правило:</strong></span> Живые игроки гарантированно не видят сообщения от наблюдателей (мертвых игроков).",
-                img: "https://picsum.photos"
-            }
-        };
-
-        function showPlugin(element, id) {
-            const items = document.querySelectorAll('.plugin-item');
-            items.forEach(item => item.classList.remove('active'));
-            
-            element.classList.add('active');
-
-            document.getElementById('placeholder').style.display = 'none';
-            const content = document.getElementById('details-content');
-            content.style.display = 'block';
-            
-            const plugin = pluginsData[id];
-            document.getElementById('plugin-title').innerHTML = plugin.title;
-            document.getElementById('plugin-desc').innerHTML = plugin.desc;
-            document.getElementById('plugin-img').src = plugin.img;
-        }
-    </script>
-
-</body>
-</html>

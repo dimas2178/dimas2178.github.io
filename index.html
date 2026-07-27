@@ -3,95 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой список плагинов</title>
+    <title>Каталог плагинов</title>
     <style>
+        /* Базовые стили и красивый шрифт */
         body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f4f4f9;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
         }
-        .container {
-            display: flex;
-            gap: 40px;
+
+        /* Шапка сайта с центрированной иконкой */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
+
+        /* Стиль для вашей иконки */
+        .project-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: white;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .header p {
+            margin: 5px 0 0 0;
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+
+        /* Основной контейнер */
+        .main-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+        }
+
+        /* Список плагинов слева */
         .plugin-list {
-            flex: 1;
-            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
+
         .plugin-item {
-            padding: 15px;
+            padding: 16px 20px;
             background: white;
-            margin-bottom: 10px;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: 0.2s;
-            font-weight: bold;
+            font-weight: 600;
+            border-left: 5px solid transparent;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: all 0.25s ease;
         }
+
+        /* Эффект при наведении */
         .plugin-item:hover {
-            background: #e0e0ff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+            background: #f1f3f9;
         }
+
+        /* Класс для активного (выбранного) плагина */
+        .plugin-item.active {
+            border-left-color: #667eea;
+            background: #edf2ff;
+            color: #4c6ef5;
+        }
+
+        /* Панель деталей справа */
         .plugin-details {
-            flex: 2;
             background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            min-height: 300px;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
+
+        /* Контент внутри деталей (изначально скрыт, пока не выберут плагин) */
+        .details-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .plugin-title {
+            margin-top: 0;
+            font-size: 2rem;
+            color: #1a1a1a;
+        }
+
+        .plugin-desc {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #4a5568;
+            margin-bottom: 25px;
+        }
+
         .plugin-image {
             max-width: 100%;
             height: auto;
-            border-radius: 6px;
-            margin-top: 15px;
-            display: none;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
+
+        /* Текст-заглушка */
         .placeholder-text {
-            color: #888;
+            color: #a0aec0;
+            font-size: 1.2rem;
+            text-align: center;
             font-style: italic;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            .header h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <h1>Каталог плагинов</h1>
+    <!-- Шапка со значком -->
+    <header class="header">
+        <!-- Замените URL ниже на ссылку на вашу настоящую иконку -->
+        <img class="project-icon" src="https://picsum.photos" alt="Иконка проекта">
+        <h1>Каталог плагинов</h1>
+        <p>Лучшие дополнения для вашего проекта в одном месте</p>
+    </header>
     
-    <div class="container">
-        <!-- Список плагинов слева -->
+    <div class="main-container">
+        <!-- Список плагинов -->
         <div class="plugin-list">
-            <div class="plugin-item" onclick="showPlugin('Плагин Авто-сохранения', 'Этот плагин автоматически сохраняет вашу работу каждые 5 секунд. Больше вы не потеряете важные данные.', 'https://picsum.photos')">Auto-Save Plugin</div>
-            <div class="plugin-item" onclick="showPlugin('Темная Тема Plus', 'Превращает любой интерфейс в приятный для глаз ночной режим с кастомными палитрами.', 'https://picsum.photos')">Dark Theme Plus</div>
-            <div class="plugin-item" onclick="showPlugin('Оптимизатор Картинок', 'Сжимает изображения без потери качества прямо перед публикацией на сайт.', 'https://picsum.photos')">Image Optimizer</div>
+            <div class="plugin-item" onclick="showPlugin(this, 'Плагин Авто-сохранения', 'Этот плагин автоматически сохраняет вашу работу каждые 5 секунд. Больше вы не потеряете важные данные.', 'https://picsum.photos')">Auto-Save Plugin</div>
+            <div class="plugin-item" onclick="showPlugin(this, 'Темная Тема Plus', 'Превращает любой интерфейс в приятный для глаз ночной режим с кастомными палитрами.', 'https://picsum.photos')">Dark Theme Plus</div>
+            <div class="plugin-item" onclick="showPlugin(this, 'Оптимизатор Картинок', 'Сжимает изображения без потери качества прямо перед публикацией на сайт.', 'https://picsum.photos')">Image Optimizer</div>
         </div>
 
-        <!-- Описание справа -->
-        <div class="plugin-details" id="details-panel">
-            <p class="placeholder-text" id="placeholder">Выберите плагин из списка слева, чтобы увидеть детали.</p>
-            <h2 id="plugin-title" style="display:none;"></h2>
-            <p id="plugin-desc"></p>
-            <img id="plugin-img" class="plugin-image" src="" alt="Скриншот плагина">
+        <!-- Описание -->
+        <div class="plugin-details">
+            <div id="placeholder" class="placeholder-text">
+                Выберите плагин из списка слева, чтобы увидеть подробную информацию и скриншот.
+            </div>
+            
+            <div id="details-content" class="details-content">
+                <h2 id="plugin-title" class="plugin-title"></h2>
+                <p id="plugin-desc" class="plugin-desc"></p>
+                <img id="plugin-img" class="plugin-image" src="" alt="Скриншот плагина">
+            </div>
         </div>
     </div>
 
     <script>
-        function showPlugin(name, description, imageUrl) {
-            // Скрываем начальный текст-подсказку
+        function showPlugin(element, name, description, imageUrl) {
+            // Убираем класс active у всех плагинов в списке
+            const items = document.querySelectorAll('.plugin-item');
+            items.forEach(item => item.classList.remove('active'));
+            
+            // Добавляем класс active нажатому элементу
+            element.classList.add('active');
+
+            // Скрываем заглушку и показываем контейнер с контентом
             document.getElementById('placeholder').style.display = 'none';
+            const content = document.getElementById('details-content');
+            content.style.display = 'block';
             
-            // Заполняем данные плагина
-            const title = document.getElementById('plugin-title');
-            const desc = document.getElementById('plugin-desc');
-            const img = document.getElementById('plugin-img');
-            
-            title.textContent = name;
-            title.style.display = 'block';
-            
-            desc.textContent = description;
-            
-            img.src = imageUrl;
-            img.style.display = 'block';
+            // Заполняем данные
+            document.getElementById('plugin-title').textContent = name;
+            document.getElementById('plugin-desc').textContent = description;
+            document.getElementById('plugin-img').src = imageUrl;
         }
     </script>
 

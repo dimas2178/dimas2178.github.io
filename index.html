@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой список плагинов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            gap: 40px;
+        }
+        .plugin-list {
+            flex: 1;
+            max-width: 300px;
+        }
+        .plugin-item {
+            padding: 15px;
+            background: white;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: 0.2s;
+            font-weight: bold;
+        }
+        .plugin-item:hover {
+            background: #e0e0ff;
+        }
+        .plugin-details {
+            flex: 2;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            min-height: 300px;
+        }
+        .plugin-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-top: 15px;
+            display: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .placeholder-text {
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Каталог плагинов</h1>
+    
+    <div class="container">
+        <!-- Список плагинов слева -->
+        <div class="plugin-list">
+            <div class="plugin-item" onclick="showPlugin('Плагин Авто-сохранения', 'Этот плагин автоматически сохраняет вашу работу каждые 5 секунд. Больше вы не потеряете важные данные.', 'https://picsum.photos')">Auto-Save Plugin</div>
+            <div class="plugin-item" onclick="showPlugin('Темная Тема Plus', 'Превращает любой интерфейс в приятный для глаз ночной режим с кастомными палитрами.', 'https://picsum.photos')">Dark Theme Plus</div>
+            <div class="plugin-item" onclick="showPlugin('Оптимизатор Картинок', 'Сжимает изображения без потери качества прямо перед публикацией на сайт.', 'https://picsum.photos')">Image Optimizer</div>
+        </div>
+
+        <!-- Описание справа -->
+        <div class="plugin-details" id="details-panel">
+            <p class="placeholder-text" id="placeholder">Выберите плагин из списка слева, чтобы увидеть детали.</p>
+            <h2 id="plugin-title" style="display:none;"></h2>
+            <p id="plugin-desc"></p>
+            <img id="plugin-img" class="plugin-image" src="" alt="Скриншот плагина">
+        </div>
+    </div>
+
+    <script>
+        function showPlugin(name, description, imageUrl) {
+            // Скрываем начальный текст-подсказку
+            document.getElementById('placeholder').style.display = 'none';
+            
+            // Заполняем данные плагина
+            const title = document.getElementById('plugin-title');
+            const desc = document.getElementById('plugin-desc');
+            const img = document.getElementById('plugin-img');
+            
+            title.textContent = name;
+            title.style.display = 'block';
+            
+            desc.textContent = description;
+            
+            img.src = imageUrl;
+            img.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>

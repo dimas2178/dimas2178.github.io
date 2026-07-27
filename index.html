@@ -13,17 +13,17 @@
         }
         .header {
             text-align: center; padding: 40px 20px; background-color: #14171c;
-            border-bottom: 3px solid #ff5400; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.8); position: relative;
+            border-bottom: 3px solid #2ecc71; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.8); position: relative;
         }
         .header::before {
             content: "RESTRICTED ACCESS / TOP SECRET"; position: absolute; top: 10px; right: 20px;
-            font-size: 0.75rem; color: #ff5400; font-weight: bold; letter-spacing: 2px; border: 1px solid #ff5400; padding: 2px 6px;
+            font-size: 0.75rem; color: #2ecc71; font-weight: bold; letter-spacing: 2px; border: 1px solid #2ecc71; padding: 2px 6px;
         }
         .project-icon {
             width: 130px; height: 130px; border-radius: 50%; background-color: #0d0f12; object-fit: contain;
-            padding: 10px; border: 2px dashed #ff5400; box-shadow: 0 0 20px rgba(255, 84, 0, 0.2); margin-bottom: 15px; transition: all 0.3s ease;
+            padding: 10px; border: 2px dashed #2ecc71; box-shadow: 0 0 20px rgba(46, 204, 113, 0.2); margin-bottom: 15px; transition: all 0.3s ease;
         }
-        .project-icon:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 84, 0, 0.4); border-style: solid; }
+        .project-icon:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(46, 204, 113, 0.4); border-style: solid; }
         .header h1 { margin: 0; font-size: 2.4rem; font-weight: bold; letter-spacing: 3px; color: #ffffff; text-transform: uppercase; }
         .header p { margin: 8px 0 0 0; color: #7a828e; font-size: 1rem; letter-spacing: 4px; text-transform: uppercase; }
         .main-container { max-width: 1240px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 360px 1fr; gap: 30px; }
@@ -33,7 +33,7 @@
             border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.95rem; transition: all 0.2s ease; color: #a2aab7; text-transform: uppercase; letter-spacing: 1px;
         }
         .plugin-item:hover { background: #1c2128; color: #ffffff; border-left-color: #ffffff; padding-left: 25px; }
-        .plugin-item.active { background: #1e1b18; color: #ff5400; border-color: #ff5400; border-left: 6px solid #ff5400; text-shadow: 0 0 8px rgba(255, 84, 0, 0.4); }
+        .plugin-item.active { background: #181e1b; color: #2ecc71; border-color: #2ecc71; border-left: 6px solid #2ecc71; text-shadow: 0 0 8px rgba(46, 204, 113, 0.4); }
         .plugin-details { background: #0d0f12; border: 2px solid #14171c; padding: 40px; border-radius: 4px; min-height: 480px; display: flex; flex-direction: column; justify-content: center; position: relative; }
         .plugin-details::before {
             content: " "; display: block; position: absolute; top: 0; left: 0; bottom: 0; right: 0;
@@ -52,7 +52,6 @@
     </style>
 </head>
 <body>
-
     <header class="header">
         <img class="project-icon" src="NoRules.png" alt="Иконка проекта">
         <h1>Терминал плагинов Litery NoRules</h1>
@@ -60,14 +59,14 @@
     </header>
     <div class="main-container">
         <div class="plugin-list">
-            <div class="plugin-item" onclick="selectPlugin(this, 1)">Двери без карты</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 1)">Открытие дверей без карты в руках</div>
             <div class="plugin-item" onclick="selectPlugin(this, 2)">Открытие дверей выстрелом</div>
             <div class="plugin-item" onclick="selectPlugin(this, 3)">SCP-457 Огненный человек</div>
             <div class="plugin-item" onclick="selectPlugin(this, 4)">SCP-1162 Дыра в стене</div>
             <div class="plugin-item" onclick="selectPlugin(this, 5)">Монетка судьбы</div>
-            <div class="plugin-item" onclick="selectPlugin(this, 6)">SCPSWAP консоль</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 6)">SCPSWAP</div>
             <div class="plugin-item" onclick="selectPlugin(this, 7)">Чат</div>
-            <div class="plugin-item" onclick="selectPlugin(this, 8)">Быстрый респавн (.res)</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 8)">Респавн (.res)</div>
             <div class="plugin-item" onclick="selectPlugin(this, 9)">SCP-005 Отмычка</div>
             <div class="plugin-item" onclick="selectPlugin(this, 10)">Группировка ГОК</div>
             <div class="plugin-item" onclick="selectPlugin(this, 11)">Побег связанных</div>
@@ -97,11 +96,11 @@
             },
             3: {
                 t: "Объект SCP-457 - Огненный человек",
-                d: "Добавляет играбельный объект SCP-457:<br><br>• <strong>Урон по области:</strong> Чем ближе к цели — тем больше урона.<br>• <span class='stat-green'>Регенерация:</span> +<code>60 HP</code> за каждое убийство.<br>• <strong>Статы:</strong> <code>2200 HP</code> и <code>550 щита</code>.<br>• <strong>Бафф:</strong> Если HP меньше или равно <code>1000</code>, щит мгновенно увеличивается до <code>1000 единиц</code>.", i: "scp457.png" 
+                d: "Добавляет играбельный объект SCP-457:<br><br>• <b>Урон по области:</b> Чем ближе к цели — тем больше урона.<br>• <span class='stat-green'>Регенерация:</span> <code>+60 HP</code> за каждое убийство.<br>• <b>Характеристики:</b> У него <code>2200 HP</code> и <code>550 единиц щита</code>.<br><br><b>Примечание:</b> Если здоровье падает до <code>1000 HP</code> или ниже, его щит увеличивается до <code>1000 единиц</code>.", i: "scp457.png" 
             },
             4: {
                 t: "Объект SCP-1162 - Дыра в стене",
-                d: "Обменник предметов на сервере. Можно почти бесконечно обменивать свои вещи на другие. <br>Исключение: <span style='color:#ff5400; font-weight:bold;'>патроны обменивать нельзя</span>.", i: "" 
+                d: "Обменник предметов на сервере. Можно почти бесконечно обменивать свои вещи на другие.<br><br><b>Примечание:</b><span style='color:#2ecc71; font-weight:bold;'>патроны обменивать нельзя</span>.", i: "" 
             },
             5: {
                 t: "Монетка судьбы",
@@ -109,35 +108,35 @@
             },
             6: {
                 t: "SCPSWAP",
-                d: "Позволяет игрокам в начале раунда менять SCP. <br>Откройте консоль (на <code>Ё</code> / <code>~</code>) и введите команду.<br><br><strong>Команда:</strong> <code>scpswap [номер_SCP]</code> (или сокращенно <code>.ss</code>, <code>.sswap</code>, <code>.swap</code>)<br><strong>Пример:</strong> <code>scpswap 049</code> или <code>.ss 049</code>", i: "" 
+                d: "Если в начале раунда вам достался SCP, за которого вы не хотите играть, вы можете просто поменять. Делается это очень просто через консоль (нажатием на кнопку <code>Ё</code> / <code>~</code>). <br><br><strong>Как правильно писать:</strong><br>• Наберите <code>scpswap [номер]</code> (или используйте быстрые сокращения: <code>.ss</code>, <code>.sswap</code>, <code>.swap</code>)<br><br><strong>Примеры:</strong><br>• <code>scpswap 049</code> или просто <code>.ss 049</code>", i: "" 
             },
             7: {
                 t: "Чат",
-                d: "Функция общения через консоль (на кнопку <code>Ё</code>). <br>команда: <code>.s [текст сообщения]</code>.<br><br><span style='color:#ff5400;'><strong>Исключение:</strong></span> Живые игроки не видят сообщения от наблюдателей.", i: "Chat.png" 
+                d: "Удобная фишка для общения через консоль. Открываете консоль на кнопку <code>Ё</code> (тильда) и пишете сообщение с помощью команды.<br><br><strong>Как отправить текст:</strong><br>• Введите: <code>.s [ваше сообщение]</code><br><br><b>Исключение:</b> Если вы наблюдатель, живые игроки вообще не видят ваши сообщения.", i: "Chat.png" 
             },
             8: {
                 t: ".respawn",
-                d: "Позволяет наблюдателям стать персоналом Класса Д или Ученым.<br><br>• <strong>примечание:</strong> функция доступна строго в <code>первые 5 минут</code> раунда.<br>• <strong>Команда (в консоль на Ё):</strong> <code>.respawn</code> или <code>.res</code>", i: ""
+                d: "Позволяет наблюдателям стать персоналом Класса Д или Ученым.<br><br>• <strong>Примечание:</strong> Функция работает без ограничений на количество раз, но строго в <code>первые 5 минут</code>. <br>• <strong>Команда (пишется в консоль на Ё):</strong> <code>.respawn</code> или короткая версия <code>.res</code>", i: ""
             },
             9: {
-                t: "Объект SCP-005 - Аномальная отмычка",
-                d: "Карманный SCP-объект. Способен обойти любую блокировку комплекса. Выглядит как ключ-карта Совета O5.<br><br>• <strong>Способность:</strong> открывает любые двери, включая заблокированные (в том числе комната SCP-079).<br>• <strong>Примичание:</strong> строго <code>5 использований</code>.<br>• <strong>Исключение:</strong> работает только на <strong>открытие</strong>, закрывать двери нельзя.<br>• <strong>Спавн:</strong> 1 штука на карту в случайных шкафчиках или боксах карманных SCP (кроме улицы).", i: ""
+                t: "SCP-005 - Аномальная отмычка Фонда",
+                d: "Карманный SCP-объект. Способен обойти любую блокировку комплекса. Выглядит как ключ-карта Совета O5.<br><br>• <b>Способность:</b> открывает любые двери, включая заблокированные (в том числе комната SCP-079).<br>• <strong>примечание:</strong> Отмычка не вечная, у неё есть максимум <code>5 использований</code>.<br>• <strong>Исключение:</strong> Она работает только в одну сторону — двери можно исключительно <strong>открывать</strong>, закрыть за собой дверь с её помощью не получится.<br>• <b>Спавн:</b> На карте появляется всего 1 штука на раунд. Она случайно спавнится в шкафчиках или боксах для карманных SCP.", i: ""
             },
             10: {
                 t: "Глобальная Оккультная Коалиция (ГОК)",
-                d: "Новая вооруженная фракция.<br><br>• <strong>Роли:</strong> Рядовой ГОК, Сержант ГОК, Капитан ГОК.<br>• <strong>Спавн:</strong> <code>10%</code> на то, что отряд заменит МОГ или ПХ.<br>• <strong>Точка спавна:</strong> зона выхода на поверхности.<br>• <span style='color:#ff5400;'><strong>примечание:</strong></span> Оперативни ГОК <strong>не могут</strong> использовать карманные SCP-объекты.", i: ""
+                d: "Новая вооруженная фракция. В отряд входят три роли: Рядовой, Сержант и Капитан.<br><br>• <b>Спавн:</b> Шанс составляет всего <code>10%</code>. Это значит, что вместо привычного подкрепления МОГ или Повстанцев Хаоса на поверхность может внезапно приехать тяжелый отряд ГОК. Спавнятся они на выходе.<br>• <b>Примечание:</b> Оперативники ГОК <strong>не могут</strong> поднять и/или использовать любые карманные SCP-объекты.", i: ""
             },
             11: {
                 t: "Эвакуация связанных пленных",
-                d: "Позволяет выводить из комплекса связанных противников в зоне эвакуации и менять их роли:<br><br>• Связанный Охранник → Новобранец ПХ<br>• Связанный Усмиритель ПХ → Специалист МОГ<br>• Другие связанные бойцы ПХ → Рядовые МОГ<br>• Связанный Капитан МОГ → Усмиритель ПХ<br>• Другие связанные бойцы МОГ → Новобранцы ПХ", i: ""
+                d: "озволяет выводить из комплекса связанных противников в зоне эвакуации и менять их роли:<br>• Связанный Охранник → Новобранец Повстанцев Хаоса (ПХ)<br>• Связанный Услышитель ПХ → Специалист МОГ<br>• Остальные связанные бойцы ПХ → Рядовые МОГ<br>• Связанный Капитан МОГ → Усмиритель ПХ<br>• Остальные связанные МОГ → Новобранцы ПХ", i: ""
             },
             12: {
                 t: "Тактический побег для SCP-объектов",
-                d: "Теперь объекты SCP могут сбежать из Зоны комплекса.<br><br>• <strong>Примечание:</strong> Находясь в зоне побега на поверхности, откройте консоль (на `Ё`) и пропишите команду.<br>• <strong>Команда:</strong> <code>.esc</code>", i: ""
+                d: "Теперь SCP объекты могут сбежать из комплекса.<br><br><b>Как сбежать:</b> Вам нужно дойти до самой зоны побега. Там открываете консоль (на кнопку `Ё`) и пишете специальную команду.<br>• <b>Команда:</b> <code>.esc</code>", i: ""
             },
             13: {
                 t: "Мина и Заряд C4",
-                d: "Оба предмета изначально появляются на карте в виде гранат.<br><br>⚡ <strong>1. МИНА</strong><br>• <strong>Спавн:</strong> по 2 штуки в оружейных комнатах легкой и тяжелой зон. Шанс — <code>100%</code>.<br>• <strong>Установка:</strong> бросьте гранату, и под вами на полу появится кастомная схематика мины.<br>• <strong>Принцип:</strong> взрывается мгновенно, если наступит любой игрок, кроме владельца (кто её поставил).<br>• <strong>Параметры:</strong> радиус гранаты, урон до <code>300 HP</code>. Уничтожается выстрелом.<br> <span style='color:#38ef7d;</code><br><br>💥 <strong>2. ЗАРЯД C4</strong><br>• <strong>Спавн:</strong> в оружейной хард зоны (шанс <code>50%</code>) и 2 штуки в оружейной 079 (шанс <code>100%</code>).<br>• <strong>Установка:</strong> брошенная граната прикрепляется к стене, двери или полу.<br>• <strong>Детонация:</strong> возьмите рацию в руки и нажмите кнопку, назначенную в настройках игры (<strong>Server-Specific</strong>). Урон как у гранаты, взрывается от выстрела.<br>• <span style='color:#38ef7d;</code>", i: ""
+                d: "Два крутых предмета для организации засад и минирования проходов. Оба устройства изначально подбираются игроками в виде обычных гранат.<br><br>⚡ <b>1. МИНА</b><br>• <b>Где найти:</b> В каждой оружейной комнате легкой и тяжелой зоны гарантированно (шанс <code>100%</code>) лежит по 2 штуки.<br>• <b>Как поставить:</b> Просто бросьте эту «гранату». На полу появится кастомная моделька мины. <br>• <b>Принцип работы:</b> Взрывается сразу, как только на неё наступит любой игрок или SCP.<br>• <b>Исключение из правил:</b> Мина абсолютно безопасна для своего владельца — того, кто её поставил, она не подорвет.<br>• <b>Параметры:</b> Радиус как у гранаты, урон до <code>300 HP</code>. Мину можно обезвредить (взорвать), просто выстрелив по ней из оружия.<br>• <i>Подсказка на экране при подборе:</i> <code>&quot;Чтобы поставить мину - киньте гранату, на владельца она не работает.&quot;</code><br><br>💥 <b>2. УПРАВЛЯЕМЫЙ ЗАРЯД C4</b><br>• <b>Где найти:</b> С шансом <code>50%</code> может появиться в оружейке хард-зоны, а в оружейной SCP-079 всегда лежат две штуки со 100% шансом.<br>• <b>Как поставить:</b> Кидаете «гранату», и она намертво липнет к стене, полу или двери.<br>• <b>Как взорвать:</b> Сама она не детонирует. Чтобы устроить взрыв, вам нужно взять в руки рацию и нажать кнопку, которую вы лично назначили в настройках игры (вкладка <strong>Server-Specific</strong>).<br>• <b>Параметры:</b> Радиус и урон как у гранаты. Тоже взрывается, если в неё выстрелить.<br>• <i>Подсказка на экране:</i> <code>&quot;Чтобы поставить С4 киньте гранату. Подробнее в Ё.&quot;</code><br>• <i>Текст в консоли (Ё):</i> <code>&quot;Чтобы поставить С4 киньте гранату, чтобы активировать С4 возьмите рацию в руки и нажмите кнопку, что Вы поставили в Server-Specific(в настройках).&quot;</code>", i: ""
             }
         };
 

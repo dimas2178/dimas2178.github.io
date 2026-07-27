@@ -55,9 +55,10 @@
     <header class="header">
         <img class="project-icon" src="NoRules.png" alt="Иконка проекта">
         <h1>Плагины Litery NoRules</h1>
-        <p>Полный список плагинов, влияющих на игровой процесс</p>
+        <p>Спецификация модулей комплекса</p>
     </header>
     <div class="main-container">
+        <!-- Добавлена новая кнопка для SCP-035 Маски -->
         <div class="plugin-list">
             <div class="plugin-item" onclick="selectPlugin(this, 1)">Открытие дверей без карты в руках</div>
             <div class="plugin-item" onclick="selectPlugin(this, 2)">Открытие дверей выстрелом</div>
@@ -74,10 +75,9 @@
             <div class="plugin-item" onclick="selectPlugin(this, 13)">Мина и С4</div>
             <div class="plugin-item" onclick="selectPlugin(this, 14)">SCP-035 Маска</div>
         </div>
-        </div>
 
         <div class="plugin-details">
-            <div id="placeholder" class="placeholder-text">[ ОЖИДАНИЕ ВЫБОРА ПЛАГИНА ]</div>
+            <div id="placeholder" class="placeholder-text">[ ОЖИДАНИЕ ВЫБОРА МОДУЛЯ ]</div>
             <div id="details-content" class="details-content">
                 <h2 id="plugin-title" class="plugin-title"></h2>
                 <p id="plugin-desc" class="plugin-desc"></p>
@@ -88,7 +88,7 @@
 
     <script>
         var db = {
-            1: {
+             1: {
                 t: "Открытие дверей без карты в руках",
                 d: "Позволяет открывать двери, без карты в руках. Больше не нужно тратить время на её экипировку в опасных ситуациях.", i: "" 
             },

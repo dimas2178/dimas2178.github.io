@@ -74,6 +74,7 @@
             <div class="plugin-item" onclick="selectPlugin(this, 12)">Побег для SCP</div>
             <div class="plugin-item" onclick="selectPlugin(this, 13)">Мина и С4</div>
             <div class="plugin-item" onclick="selectPlugin(this, 14)">SCP-035 Маска</div>
+            <div class="plugin-item" onclick="selectPlugin(this, 15)">SCP-012 Скверная мелодия</div>
         </div>
 
         <div class="plugin-details">
@@ -143,6 +144,10 @@
             14: {
                 t: "SCP-035 - Маска одержимости",
                 d: "Аномальный объект, который подчиняет себе разум человека, превращая его в опасного противника для других людей. Спавнится сразу, убив данный объект с него выпадет эта маска. Вы сможете ее подобрать через минуту.<br><br>• <b>Характеристики:</b> Объект имеет скромный, но опасный запас в <code>120 HP</code>.<br>• <b>Локация спавна:</b> Спавнится сразу в тяжелой зоне.<br><br>• <b>Примечание:</b> Не стоит недооценивать маску из-за низкого здоровья. Опытный игрок на раз-два может закончить раунд.", i: "scp035.png"
+            },
+            15: {
+                t: "SCP-012 Скверная мелодия",
+                d: "Добавляет на сервер объект SCP-012. Находится в комнате 330. В самой комнате 012 гарантированно хранится пистолет и карта научного сотрудника. Если игрок подходит вплотную к самому объекту 012 — у него активируется непреодолимое желание подойти и дописать его ноты собственной кровью.", i: ""
             }
         };
 
@@ -163,5 +168,47 @@
             }
         }
     </script>
+<!-- Контейнер для пасхалки -->
+<div id="easter-egg-container" style="
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-content: 9999;
+    display: none; /* Изначально картинка скрыта */
+    pointer-events: none; /* Чтобы картинка не мешала кликам по сайту */
+">
+    <!-- Замените "ссылка_на_картинку.png" на адрес вашей картинки (например, "avatar.png" или ссылку из интернета) -->
+    <img src="secret.png" alt="Пасхалка" style="
+        width: 50px; /* Размер картинки (маленькая и малозаметная) */
+        height: auto;
+        opacity: 0.6; /* Слегка прозрачная, чтобы не бросалась в глаза */
+    ">
+</div>
+<script>
+    // Нужная комбинация клавиш: ['2', '1', '7', '8']
+    const secretCode = ['2', '1', '7', '8'];
+    let currentPosition = 0;
+
+    document.addEventListener('keydown', function(event) {
+        // Проверяем, совпадает ли нажатая клавиша с текущим символом в секретном коде
+        if (event.key === secretCode[currentPosition]) {
+            currentPosition++; // Переходим к следующей цифре
+            
+            // Если введена вся комбинация целиком
+            if (currentPosition === secretCode.length) {
+                const eggContainer = document.getElementById('easter-egg-container');
+                
+                // Показываем картинку
+                eggContainer.style.display = 'block'; 
+                
+                // Сбрасываем счетчик, чтобы код можно было ввести повторно
+                currentPosition = 0; 
+            }
+        } else {
+            // Если нажата не та кнопка, сбрасываем ввод (но даем шанс начать заново, если нажали правильную первую цифру)
+            currentPosition = event.key === secretCode[0] ? 1 : 0;
+        }
+    });
+</script>
 </body>
 </html>
